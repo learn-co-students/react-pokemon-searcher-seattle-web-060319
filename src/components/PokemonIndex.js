@@ -41,6 +41,28 @@ class PokemonPage extends React.Component {
     })
   }
 
+  handleSubmit = e => {
+    e.persist()
+    console.log('inside handle submit', e.target.name.value)
+    return fetch(BASE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: e.target.name.value,
+        stats: [{
+          value: Number(e.target.hp.value),
+          name: "hp"
+        }],
+        sprites: {
+          front: e.target.frontUrl.value,
+          back: e.target.backUrl.value
+        }
+      })
+    })
+      .then(res => res.json())
+      .then(this.getPokemon())
+  }
+
   render() {
     return (
       <div>
@@ -50,7 +72,7 @@ class PokemonPage extends React.Component {
         <br />
         <PokemonCollection all={this.state.all} />
         <br />
-        <PokemonForm />
+        <PokemonForm handleSubmit={this.handleSubmit} />
       </div>
     )
   }

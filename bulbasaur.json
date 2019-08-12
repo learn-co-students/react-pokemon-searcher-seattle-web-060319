@@ -1,0 +1,14 @@
+{
+    "name": "bulbasaur",
+    "stats": [
+        {
+            "value": 999,
+            "name": "hp"
+        }
+    ],
+    "sprites": {
+        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+    },
+    "id": 207
+}

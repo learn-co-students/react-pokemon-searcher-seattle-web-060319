@@ -10,6 +10,11 @@ class PokemonCard extends React.Component {
     this.setState({ imgState: !this.state.imgState })
   }
 
+  getHp = (pokemon) => {
+    let hp = pokemon.stats.filter(obj => obj.name === 'hp')
+    return hp[0].value
+  }
+
   render() {
     let pokemon = this.props.pokemon
     let img
@@ -27,7 +32,7 @@ class PokemonCard extends React.Component {
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              {pokemon.stats[5].value} hp
+              {this.getHp(pokemon)} hp
             </span>
           </div>
         </div>
